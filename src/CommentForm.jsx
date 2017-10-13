@@ -50,11 +50,11 @@ class CommentForm extends Component {
                 <input id='name' placeholder='Name' type='text' autoComplete='off' name="name" value={this.state.name} onChange={this.handleInputChange}/>
                 <label htmlFor='rating'>Rating</label>
                 <span>
-                    <label><input type="radio" name="rating" value="1" checked={this.state.rating === '1'} onClick={this.handleInputChange}/> 1</label>
-                    <label><input type="radio" name="rating" value="2" checked={this.state.rating === '2'} onClick={this.handleInputChange}/> 2</label>
-                    <label><input type="radio" name="rating" value="3" checked={this.state.rating === '3'} onClick={this.handleInputChange}/> 3</label>
-                    <label><input type="radio" name="rating" value="4" checked={this.state.rating === '4'} onClick={this.handleInputChange}/> 4</label>
-                    <label><input type="radio" name="rating" value="5" checked={this.state.rating === '5'} onClick={this.handleInputChange}/> 5</label>
+                    <label><input type="radio" name="rating" value="1" defaultChecked={this.state.rating === '1'} onClick={this.handleInputChange}/> 1</label>
+                    <label><input type="radio" name="rating" value="2" defaultChecked={this.state.rating === '2'} onClick={this.handleInputChange}/> 2</label>
+                    <label><input type="radio" name="rating" value="3" defaultChecked={this.state.rating === '3'} onClick={this.handleInputChange}/> 3</label>
+                    <label><input type="radio" name="rating" value="4" defaultChecked={this.state.rating === '4'} onClick={this.handleInputChange}/> 4</label>
+                    <label><input type="radio" name="rating" value="5" defaultChecked={this.state.rating === '5'} onClick={this.handleInputChange}/> 5</label>
                 </span>
                 <label htmlFor='text'>Comment</label>
                 <textarea id='text' placeholder='text' autoComplete='off' name='text' value={this.state.text} onChange={this.handleInputChange}/>
