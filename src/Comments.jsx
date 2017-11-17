@@ -64,7 +64,7 @@ class Comments extends Component {
 
     let comments = [];
 
-    db.collection("comments").onSnapshot(querySnapshot => {
+    this.unsubscribe = db.collection("comments").onSnapshot(querySnapshot => {
       comments = [];
       querySnapshot.forEach(doc => {
         let comment = {};
@@ -80,6 +80,10 @@ class Comments extends Component {
         };
       });
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   updateRating(rating) {
