@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import db from "./firestore";
+import {db} from "./firestore";
 
 function SelectRating(props) {
   let ratings = ["1", "2", "3", "4", "5"];
@@ -36,7 +36,7 @@ function CommentsGrid(props) {
                 <li>
                   <img
                     className="avatar"
-                    src={"https://api.adorable.io/avatars/150/" + comment.name}
+                    src={comment.avatar !== "" ? comment.avatar : "https://api.adorable.io/avatars/150/" + comment.name }
                     alt={"Avatar for " + comment.name}
                   />
                 </li>
@@ -71,6 +71,7 @@ class Comments extends Component {
         comment.name = doc.get("name");
         comment.text = doc.get("text");
         comment.rating = doc.get("rating");
+        comment.avatar = doc.get("avatar");
         comments.push(comment);
       });
 

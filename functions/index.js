@@ -15,7 +15,6 @@ exports.moderator = functions.firestore.document('/comments/{commentsId}')
             sanitized : true
         }, {merge: true});
     }
-    return;
 });
 
 function moderateComment(comment) {
