@@ -42,10 +42,13 @@ class CommentForm extends Component {
       text: this.state.text
     };
     let uploader = document.getElementById("uploader");
+    let commentRef = db.collection("comments").doc();
 
     let file = this.state.file;
     if (file !== null) {
-      let storageRef = storage.ref("avatars/" + file.name);
+      let extention = file.name.split('.').pop();
+
+      let storageRef = storage.ref("avatars/" + commentRef.id + "." + extention);
       let uploadTask = storageRef.put(file);
       // Register three observers:
       // 1. 'state_changed' observer, called any time the state changes
@@ -76,7 +79,8 @@ class CommentForm extends Component {
           // Handle successful uploads on complete
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           let downloadURL = uploadTask.snapshot.downloadURL;
-          let commentRef = db.collection("comments").doc();
+          //let commentRef = db.collection("comments").doc();
+
           comment.avatar = downloadURL;
           commentRef.set(comment);
           that.setState(() => {
@@ -91,7 +95,7 @@ class CommentForm extends Component {
         }
       );
     } else {
-      let commentRef = db.collection("comments").doc();
+      //let commentRef = db.collection("comments").doc();
       comment.avatar = "";
       commentRef.set(comment);
       this.setState(() => {
