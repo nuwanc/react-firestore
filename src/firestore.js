@@ -3,7 +3,7 @@ import "firebase/firestore";
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyBsVsr2AEYC_iY2n8oyfncq1JZLXxBztCY",
+  apiKey: "",
   authDomain: "react-firestore.firebaseapp.com",
   databaseURL: "https://react-firestore.firebaseio.com",
   projectId: "react-firestore",
